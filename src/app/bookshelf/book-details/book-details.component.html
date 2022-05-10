@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>{{ book.title }}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>{{ book.author }}</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>{{ book.genre }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <img [src]="book.coverImagePath" [alt]="book.title" />
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="dropdown" appDropdown>
+      <button type="button" class="btn btn-primary dropdown-toggle">
+        Edit Book
+      </button>
+
+      <div class="dropdown-menu">
+        <a class="dropdown-item" (click)="onEditBook()">Update Book</a>
+        <a class="dropdown-item" (click)="onRemoveBook()">Delete Book</a>
+      </div>
+    </div>
+  </div>
+</div>

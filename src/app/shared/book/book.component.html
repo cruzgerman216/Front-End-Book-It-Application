@@ -1,0 +1,40 @@
+<a
+  style="cursor: pointer"
+  class="list-group-item clearfix"
+  [routerLink]="[idx]"
+  routerLinkActive="active"
+>
+  <!-- Left Side = Book Info -->
+  <div class="float-left">
+    <!-- TITLE -->
+    <h4 class="list-group-item-heading">{{ book.title }}</h4>
+
+    <!-- GENRE -->
+    <p class="list-group-item-text mb-0" *ngIf="book.genre !== ''">
+      {{ book.genre }}
+    </p>
+
+    <!-- AUTHOR -->
+    <p class="list-group-item-text mb-0">{{ book.author }}</p>
+
+    <!-- PRICE -->
+    <p class="list-group-item-text mb-0" *ngIf="book.price > 0">
+      {{ book.price | currency }}
+    </p>
+
+    <!-- PUBLISH YEAR -->
+    <p class="list-group-item-text mb-0" *ngIf="book.firstPublishYear">
+      {{ book.firstPublishYear }}
+    </p>
+  </div>
+
+  <!-- Right Side = Book Image -->
+  <div class="float-right" *ngIf="book.coverImagePath !== ''">
+    <img
+      src="{{ book.coverImagePath }}"
+      alt="{{ book.title }}"
+      class="img-responsive rounded"
+      style="max-height: 50px"
+    />
+  </div>
+</a>

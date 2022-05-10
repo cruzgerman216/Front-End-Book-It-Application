@@ -1,0 +1,99 @@
+<form #bookFormRef="ngForm" (ngSubmit)="onFormSubmit(bookFormRef)">
+  <!-- TITLE -->
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      class="form-control"
+      [ngModel]="bookDetails.title"
+      #titleRef="ngModel"
+      required
+    />
+    <span
+      class="help-block text-danger"
+      *ngIf="!titleRef.valid && titleRef.touched"
+      >Please enter a valid title!</span
+    >
+  </div>
+
+  <!-- AUTHOR -->
+  <div class="form-group">
+    <label for="author">Author</label>
+    <input
+      type="text"
+      id="author"
+      name="author"
+      class="form-control"
+      [ngModel]="bookDetails.author"
+      #authorRef="ngModel"
+      required
+    />
+    <span
+      class="help-block text-danger"
+      *ngIf="!authorRef.valid && authorRef.touched"
+      >Please enter a valid author!</span
+    >
+  </div>
+
+  <!-- GENRE -->
+  <div class="form-group">
+    <label for="genre">Genre</label>
+    <select
+      id="genre"
+      name="genre"
+      class="form-control"
+      [ngModel]="bookDetails.genre"
+      #genreRef="ngModel"
+      required
+    >
+      <option disabled selected value>Select a genre</option>
+      <option value="Mystery">Mystery</option>
+      <option value="Science">Science</option>
+      <option value="Non-Fiction">Non-Fiction</option>
+      <option value="Fiction">Fiction</option>
+    </select>
+    <span
+      class="help-block text-danger"
+      *ngIf="!genreRef.valid && genreRef.touched"
+      >Please select a valid genre!</span
+    >
+  </div>
+
+  <!-- IMAGE INPUT -->
+  <div class="form-group">
+    <label for="coverImagePath">Image Path</label>
+    <input
+      type="text"
+      id="coverImagePath"
+      name="coverImagePath"
+      class="form-control"
+      [ngModel]="bookDetails.coverImagePath"
+      required
+    />
+  </div>
+
+  <!-- IMAGE DISPLAY -->
+  <div class="row my-2">
+    <div class="col-xs-10 mx-auto">
+      <img
+        [src]="bookFormRef.value['coverImagePath']"
+        [alt]="bookFormRef.value['title']"
+        class="img-responsive"
+      />
+    </div>
+  </div>
+
+  <!-- SUBMIT & CANCEL BTN's -->
+  <button
+    type="submit"
+    class="btn btn-success mr-3"
+    [disabled]="!bookFormRef.valid"
+  >
+    Save
+  </button>
+  <button type="button" class="btn btn-danger" (click)="onFormReset()">
+    Cancel
+  </button>
+</form>

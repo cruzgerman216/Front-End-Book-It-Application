@@ -1,0 +1,16 @@
+<div class="row mb-3" *ngIf="bookResults.length > 0" [@swoopIn]>
+  <div class="col-md-9" *ngFor="let bookEl of bookResults">
+    <app-book [book]="bookEl"></app-book>
+    <button
+      class="float-right"
+      style="border: none; font-size: 16px"
+      (click)="onSaveBook(bookEl)"
+    >
+      &plus;
+    </button>
+  </div>
+</div>
+
+<div class="mb-3 row" *ngIf="bookResults.length < 1">
+  <p>No books available. Please search again!</p>
+</div>

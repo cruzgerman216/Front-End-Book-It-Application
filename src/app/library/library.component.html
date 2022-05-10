@@ -1,0 +1,29 @@
+<!-- Top Row - Title & Input -->
+<div class="row">
+  <!-- Title -->
+  <div class="col-md-6">
+    <h1>API Library Results</h1>
+  </div>
+
+  <!-- Input -->
+  <div class="col-md-6">
+    <app-book-search></app-book-search>
+  </div>
+</div>
+
+<!-- Bottom Row - Result List -->
+<div class="row">
+  <div class="col-md-12">
+    <app-book-results></app-book-results>
+  </div>
+</div>
+
+<!-- Notification -->
+<!-- <app-notification></app-notification> -->
+
+<!-- ALERT -->
+<app-alert
+  [alertMsg]="alert"
+  (closeModal)="handleCloseModal()"
+  *ngIf="alert"
+></app-alert>
